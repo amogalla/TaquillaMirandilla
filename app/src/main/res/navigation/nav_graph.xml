@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.taquillamirandilla.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment"
+            app:popUpTo="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.taquillamirandilla.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_SecondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:popUpTo="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.taquillamirandilla.ThirdFragment"
+        android:label="@string/third_fragment_label"
+        tools:layout="@layout/fragment_third">
+        <action
+            android:id="@+id/action_thirdFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment"
+            app:popUpTo="@id/FirstFragment" >
+            <argument
+                android:name="param1"
+                android:defaultValue="0" />
+        </action>
+        <action
+            android:id="@+id/action_thirdFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment"
+            app:popUpTo="@id/thirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.taquillamirandilla.FourthFragment"
+        android:label="@string/fourth_fragment_label"
+        tools:layout="@layout/fragment_fourth" >
+        <action
+            android:id="@+id/action_fourthFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/FirstFragment" />
+        <argument
+            android:name="param1"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="com.example.taquillamirandilla.FifthFragment"
+        android:label="@string/fifth_fragment_label"
+        tools:layout="@layout/fragment_fifth">
+        <action
+            android:id="@+id/action_fifthFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:popUpTo="@id/thirdFragment" />
+    </fragment>
+</navigation>
