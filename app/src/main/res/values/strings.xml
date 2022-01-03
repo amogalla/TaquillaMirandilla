@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Taquilla Mirandilla</string>
+    <!-- Strings de aspecto general -->
+    <string name="app_name">Taquilla_Mirandilla</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings para los fragmentos -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="third_fragment_label">Third Fragment</string>
+    <string name="fourth_fragment_label">Fourth Fragment</string>
+    <string name="fifth_fragment_label">Fifth Fragment</string>
+
+    <!-- Strings para botones y labels -->
+    <string name="inicio">Inicio</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="seleccion">Selección de método de pago</string>
+    <string name="productos">Selección de productos</string>
+    <string name="pedido_realizado">Pedido realizado</string>
+    <string name="datos_entrega">Datos de entrega</string>
+    <string name="error_en_pago">Error en el pago</string>
+    <string name="reintentar">Reintentar pago</string>
 </resources>
