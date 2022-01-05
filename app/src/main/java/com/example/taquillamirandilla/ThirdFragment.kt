@@ -9,7 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.taquillamirandilla.databinding.FragmentThirdBinding
 
-private const val ARG_PARTIDO = "partido"
+val ARG_PARTIDO = "partido"
 
 class ThirdFragment : Fragment() {
 

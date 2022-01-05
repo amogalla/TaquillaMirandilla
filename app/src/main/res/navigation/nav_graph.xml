@@ -48,7 +48,8 @@
             app:popUpTo="@id/thirdFragment" />
         <argument
             android:name="partido"
-            android:defaultValue="Partido no seleccionado" />
+            android:defaultValue='"Partido no seleccionado"'
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"
