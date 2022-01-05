@@ -9,17 +9,27 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.taquillamirandilla.databinding.FragmentThirdBinding
 
+private const val ARG_PARTIDO = "partido"
+
 class ThirdFragment : Fragment() {
 
+    private var partido:String? = null
     private var _binding: FragmentThirdBinding? = null
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        arguments?.let{
+            partido = it.getString(ARG_PARTIDO)
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflamos el layout al crear la vista
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
+        binding.textviewNombrePartido.text = partido
         return binding.root
     }
 

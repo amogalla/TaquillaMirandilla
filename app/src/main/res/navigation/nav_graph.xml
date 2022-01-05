@@ -23,8 +23,11 @@
         tools:layout="@layout/fragment_second">
         <action
             android:id="@+id/action_SecondFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment"
-            app:popUpTo="@id/SecondFragment" />
+            app:destination="@id/thirdFragment">
+            <argument
+                android:name="ARG_PARTIDO"
+                android:defaultValue='"No seleccionado"' />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
@@ -43,6 +46,9 @@
             android:id="@+id/action_thirdFragment_to_fifthFragment"
             app:destination="@id/fifthFragment"
             app:popUpTo="@id/thirdFragment" />
+        <argument
+            android:name="partido"
+            android:defaultValue="Partido no seleccionado" />
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"
