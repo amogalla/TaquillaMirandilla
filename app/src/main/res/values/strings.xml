@@ -19,4 +19,7 @@
     <string name="datos_entrega">Datos de entrega</string>
     <string name="error_en_pago">Error en el pago</string>
     <string name="reintentar">Reintentar pago</string>
+    <string name="primerPartido">Cádiz - Sevilla</string>
+    <string name="segundoPartido">Cádiz - Osasuna</string>
+    <string name="tercerPartido">Cádiz - Celta</string>
 </resources>

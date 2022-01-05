@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.taquillamirandilla.databinding.FragmentSecondBinding
+
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +27,16 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //Al pulsar el botón, navegamos al tercer fragmento.
-        binding.buttonSecond.setOnClickListener {
+
+        binding.buttonPrimerPartido.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
+        }
+
+        binding.buttonSegundoPartido.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
+        }
+
+        binding.buttonTercerPartido.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment)
         }
     }
