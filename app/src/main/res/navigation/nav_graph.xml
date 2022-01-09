@@ -24,6 +24,7 @@
         <action
             android:id="@+id/action_SecondFragment_to_localidad"
             app:destination="@id/localidad" />
+
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"

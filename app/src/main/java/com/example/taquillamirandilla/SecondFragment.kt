@@ -31,17 +31,17 @@ class SecondFragment : Fragment() {
 
         binding.buttonPrimerPartido.setOnClickListener {
             val bundle = bundleOf("partido" to binding.textviewPrimerPartido.text)
-            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_SecondFragment_to_localidad, bundle)
         }
 
         binding.buttonSegundoPartido.setOnClickListener {
             val bundle = bundleOf("partido" to binding.textviewSegundoPartido.text)
-            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_SecondFragment_to_localidad, bundle)
         }
 
         binding.buttonTercerPartido.setOnClickListener {
             val bundle = bundleOf("partido" to binding.textviewTercerPartido.text)
-            findNavController().navigate(R.id.action_SecondFragment_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_SecondFragment_to_localidad, bundle)
         }
     }
 
