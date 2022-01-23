@@ -46,8 +46,8 @@ class ThirdFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Generamos un número aleatorio entre 1 y 2
-        val pago = (0 until 2).random()
-
+        //val pago = (0 until 2).random()
+        val pago = 1
         val bundle = bundleOf("param1" to "Pago autorizado: " + pago.toString())
 
         //Si el número aleatorio ha sido el 1, el pedido se ha realizado correctamente

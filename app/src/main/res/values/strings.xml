@@ -23,6 +23,9 @@
     <string name="segundoPartido">Cádiz - Osasuna</string>
     <string name="tercerPartido">Cádiz - Celta</string>
 
+    <string name="share">Compartir</string>
+    <string name="share_success_text">Acabo de comprar una entrada para el proximo partido del Cadiz por la App TaquillaMirandilla, si quieres venir conmigo, date prisa y saca tu entrada. Y recuerda: la lucha no se negocia.</string>
+
 
     <string name="ayuda_compra">Con esta app podrás comprar las entradas para los próximos partidos que disputará el Cádiz C.F. en el estadio Mirandilla. Si tiene alguna duda con su utilización, por favor, escriba un correo a taquilla@mirandilla.com. Gracias.</string>
     <string name="tribuna">Tribuna</string>
