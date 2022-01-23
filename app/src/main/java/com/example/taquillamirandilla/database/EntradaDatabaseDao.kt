@@ -16,7 +16,7 @@ interface EntradaDatabaseDao {
     suspend fun update(night: Entrada)
 
     @Query("SELECT * from entrada_table WHERE id = :key")
-    suspend fun get(key: Long): Entrada?
+    suspend fun get(id: Long): Entrada?
 
     @Query("DELETE FROM entrada_table")
     suspend fun clear()

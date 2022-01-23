@@ -79,6 +79,10 @@
         <action
             android:id="@+id/action_localidad_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <argument
+            android:name="partido"
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"

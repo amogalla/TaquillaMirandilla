@@ -10,7 +10,7 @@ data class Entrada(
         var id: Long = 0L,
 
         @ColumnInfo(name = "grada")
-        val grada: String = "",
+        var grada: String = "",
 
         @ColumnInfo(name = "fila")
         var fila: Int = 0,
