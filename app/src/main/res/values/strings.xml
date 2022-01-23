@@ -24,4 +24,5 @@
     <string name="tercerPartido">Cádiz - Celta</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ayuda_compra">Con esta app podrás comprar las entradas para los próximos partidos que disputará el Cádiz C.F. en el estadio Mirandilla. Si tiene alguna duda con su utilización, por favor, escriba un correo a taquilla@mirandilla.com. Gracias.</string>
 </resources>

@@ -3,9 +3,12 @@ package com.example.taquillamirandilla
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.taquillamirandilla.databinding.FragmentFourthBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -23,11 +26,18 @@ class FourthFragment : Fragment() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController())
+                || super.onOptionsItemSelected(item)
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)  //Tiene UN menú
         // Inflamos el layout al crear la vista
         _binding = FragmentFourthBinding.inflate(inflater, container, false)
         return binding.root
