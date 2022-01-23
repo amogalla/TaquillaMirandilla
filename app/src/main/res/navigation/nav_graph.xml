@@ -22,8 +22,8 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
         <action
-            android:id="@+id/action_SecondFragment_to_localidad"
-            app:destination="@id/localidad" />
+            android:id="@+id/action_SecondFragment_to_localidadFragment"
+            app:destination="@id/localidadFragment" />
 
     </fragment>
     <fragment
@@ -72,10 +72,10 @@
             app:popUpTo="@id/thirdFragment" />
     </fragment>
     <fragment
-        android:id="@+id/localidad"
-        android:name="com.example.taquillamirandilla.Localidad"
-        android:label="fragment_localidad"
-        tools:layout="@layout/fragment_localidad" >
+        android:id="@+id/localidadFragment"
+        android:name="com.example.taquillamirandilla.LocalidadFragment"
+        android:label="@string/select_localidad"
+        tools:layout="@layout/fragment_localidad">
         <action
             android:id="@+id/action_localidad_to_thirdFragment"
             app:destination="@id/thirdFragment" />

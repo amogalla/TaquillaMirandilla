@@ -21,7 +21,7 @@ class SecondFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         setHasOptionsMenu(true)  //Tiene UN menú
         // Inflamos el layout al crear la vista
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
@@ -29,7 +29,7 @@ class SecondFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
 
@@ -41,17 +41,17 @@ class SecondFragment : Fragment() {
 
         binding.buttonPrimerPartido.setOnClickListener {
             val bundle = bundleOf("partido" to binding.textviewPrimerPartido.text)
-            findNavController().navigate(R.id.action_SecondFragment_to_localidad, bundle)
+            findNavController().navigate(R.id.action_SecondFragment_to_localidadFragment, bundle)
         }
 
         binding.buttonSegundoPartido.setOnClickListener {
             val bundle = bundleOf("partido" to binding.textviewSegundoPartido.text)
-            findNavController().navigate(R.id.action_SecondFragment_to_localidad, bundle)
+            findNavController().navigate(R.id.action_SecondFragment_to_localidadFragment, bundle)
         }
 
         binding.buttonTercerPartido.setOnClickListener {
             val bundle = bundleOf("partido" to binding.textviewTercerPartido.text)
-            findNavController().navigate(R.id.action_SecondFragment_to_localidad, bundle)
+            findNavController().navigate(R.id.action_SecondFragment_to_localidadFragment, bundle)
         }
     }
 

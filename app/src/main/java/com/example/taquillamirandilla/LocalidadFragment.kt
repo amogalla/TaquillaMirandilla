@@ -7,21 +7,21 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.taquillamirandilla.databinding.FragmentFirstBinding
+import com.example.taquillamirandilla.databinding.FragmentLocalidadBinding
 
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Localidad.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Localidad : Fragment() {
+class LocalidadFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentLocalidadBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +36,9 @@ class Localidad : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)  //Tiene UN menú
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_localidad, container, false)
+        // Inflamos el layout al crear la vista
+        _binding = FragmentLocalidadBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -45,19 +46,31 @@ class Localidad : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        //Al pulsar el botón, navegamos al siguiente fragmento.
+        binding.buttonTribuna.setOnClickListener {
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+        }
+
+        binding.buttonFondoNorte.setOnClickListener {
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+        }
+
+        binding.buttonFondoSur.setOnClickListener {
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+        }
+
+        binding.buttonPreferencia.setOnClickListener {
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+        }
+    }
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Localidad.
-         */
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Localidad().apply {
+            LocalidadFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
