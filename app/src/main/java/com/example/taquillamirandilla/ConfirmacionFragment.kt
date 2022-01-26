@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -44,10 +45,15 @@ class ThirdFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(ConfirmacionViewModel::class.java)
 
         binding.buttonValidarCompra.setOnClickListener{
-            actualizaTextoPartido()
-            binding.buttonSiguiente.isEnabled = true
-            binding.buttonValidarCompra.isEnabled = false
+            viewModel.resetList()
+            //binding.buttonSiguiente.isEnabled = true
+            //ok binding.buttonValidarCompra.isEnabled = false
         }
+
+        viewModel.codigoEntrada.observe(this, Observer { nuevoCodigoEntrada ->
+            binding.textViewCodigo.text = nuevoCodigoEntrada.toString()
+        })
+
         return binding.root
     }
 
@@ -80,10 +86,5 @@ class ThirdFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    private fun actualizaTextoPartido(){
-        binding.textViewCodigo.text = viewModel.codigoEntrada
-    }
-
 
 }
