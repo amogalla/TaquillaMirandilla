@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -66,20 +67,24 @@ class LocalidadFragment : Fragment() {
 
         //Al pulsar el botón, navegamos al siguiente fragmento.
         binding.buttonTribuna.setOnClickListener {
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+            val bundle = bundleOf("partido" to partido)
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
 
         binding.buttonFondoNorte.setOnClickListener {
-            actualizaTextoPartido()
-            //findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+            val bundle = bundleOf("partido" to partido)
+            //actualizaTextoPartido()
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
 
         binding.buttonFondoSur.setOnClickListener {
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+            val bundle = bundleOf("partido" to partido)
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
 
         binding.buttonPreferencia.setOnClickListener {
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+            val bundle = bundleOf("partido" to partido)
+            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
     }
     companion object {
