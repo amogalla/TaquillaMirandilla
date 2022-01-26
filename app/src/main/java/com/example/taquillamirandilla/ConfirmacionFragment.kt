@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -38,16 +39,24 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)  //Tiene UN menú
-        // Inflamos el layout al crear la vista
         _binding = FragmentConfirmacionBinding.inflate(inflater, container, false)
+
+        //Establecemos el valos de los textViews que nos llegan como parámetros de los fragmentos anteriores
         binding.textviewNombrePartido.text = partido
         binding.textviewNombreGrada.text = grada
+
+        //Invisibilizamos los dos textos referentes al código de compra
+        binding.textViewInfoCodigo.isVisible = false
+        binding.textViewCodigo.isVisible = false
+
         viewModel = ViewModelProviders.of(this).get(ConfirmacionViewModel::class.java)
 
         binding.buttonValidarCompra.setOnClickListener{
             viewModel.resetList()
-            //binding.buttonSiguiente.isEnabled = true
-            //ok binding.buttonValidarCompra.isEnabled = false
+            binding.textViewInfoCodigo.isVisible = true
+            binding.textViewCodigo.isVisible = true
+            binding.buttonSiguiente.isEnabled = true
+            binding.buttonValidarCompra.isEnabled = false
         }
 
         viewModel.codigoEntrada.observe(this, Observer { nuevoCodigoEntrada ->

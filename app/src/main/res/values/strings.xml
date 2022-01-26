@@ -40,4 +40,5 @@
     <string name="grada_elegida">Grada elegida</string>
     <string name="info_codigo_compra">Código de compra</string>
     <string name="text_codigo_compra">Código</string>
+    <string name="validar_compra">Validar Compra</string>
 </resources>
