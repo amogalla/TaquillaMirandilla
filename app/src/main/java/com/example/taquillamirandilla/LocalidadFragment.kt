@@ -1,11 +1,13 @@
 package com.example.taquillamirandilla
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -18,6 +20,8 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class LocalidadFragment : Fragment() {
+    private lateinit var viewModel:LocalidadViewModel
+
     private var param1: String? = null
     private var param2: String? = null
     private var _binding: FragmentLocalidadBinding? = null
@@ -38,6 +42,15 @@ class LocalidadFragment : Fragment() {
         setHasOptionsMenu(true)  //Tiene UN menú
         // Inflamos el layout al crear la vista
         _binding = FragmentLocalidadBinding.inflate(inflater, container, false)
+
+        Log.i("LocalidadViewModel", "Providers call.")
+        viewModel = ViewModelProviders.of(this).get(LocalidadViewModel::class.java)
+
+        binding.buttonFondoNorte.setOnClickListener{
+            actualizaTextoPartido()
+        }
+
+
         return binding.root
     }
 
@@ -55,7 +68,8 @@ class LocalidadFragment : Fragment() {
         }
 
         binding.buttonFondoNorte.setOnClickListener {
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+            actualizaTextoPartido()
+            //findNavController().navigate(R.id.action_localidad_to_thirdFragment)
         }
 
         binding.buttonFondoSur.setOnClickListener {
@@ -77,4 +91,17 @@ class LocalidadFragment : Fragment() {
                 }
             }
     }
+
+
+
+    private fun actualizaTextoPartido(){
+        binding.textviewFondoNorte.text = viewModel.partido
+    }
+
+
+
+    fun localidadTermina() {
+        findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+    }
+
 }
