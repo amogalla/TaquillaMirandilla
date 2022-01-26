@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 
 class LocalidadViewModel: ViewModel() {
 
-    var partido = "jj"
+    var partido = "Error"
 
     lateinit var listaPartidos: MutableList<String>
 

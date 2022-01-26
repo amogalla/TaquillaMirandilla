@@ -12,10 +12,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.taquillamirandilla.databinding.FragmentThirdBinding
 
+val ARG_GRADA = "grada"
+
+
 
 class ThirdFragment : Fragment() {
 
     private var partido:String? = null
+    private var grada:String? = null
     private var _binding: FragmentThirdBinding? = null
     private val binding get() = _binding!!
 
@@ -23,6 +27,7 @@ class ThirdFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let{
             partido = it.getString(ARG_PARTIDO)
+            grada = it.getString(ARG_GRADA)
         }
     }
     override fun onCreateView(
@@ -33,6 +38,7 @@ class ThirdFragment : Fragment() {
         // Inflamos el layout al crear la vista
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
         binding.textviewNombrePartido.text = partido
+        binding.textviewNombreGrada.text = grada
         return binding.root
     }
 

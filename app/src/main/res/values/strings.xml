@@ -13,7 +13,7 @@
     <!-- Strings para botones y labels -->
     <string name="inicio">Inicio</string>
     <string name="siguiente">Siguiente</string>
-    <string name="seleccion">Selección de método de pago</string>
+    <string name="partido_elegido">Partido elegido</string>
     <string name="productos">Selección de productos</string>
     <string name="pedido_realizado">Pedido realizado</string>
     <string name="datos_entrega">Datos de entrega</string>
@@ -35,4 +35,7 @@
     <string name="fondo_norte">Fondo norte</string>
 
     <string name="select_localidad">Selección de localidad</string>
+    <string name="infoEleccionPartido">Has elegido comprar una entrada para el siguiente partido:</string>
+    <string name="infoEleccionGrada">en la grada de</string>
+    <string name="grada_elegida">Grada elegida</string>
 </resources>

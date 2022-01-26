@@ -18,16 +18,10 @@ import com.example.taquillamirandilla.databinding.FragmentLocalidadBinding
 
 val ARG_PARTIDO = "partido"
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class LocalidadFragment : Fragment() {
     private lateinit var viewModel:LocalidadViewModel
     private var partido:String? = null
 
-    private var param1: String? = null
-    private var param2: String? = null
     private var _binding: FragmentLocalidadBinding? = null
     private val binding get() = _binding!!
 
@@ -67,34 +61,33 @@ class LocalidadFragment : Fragment() {
 
         //Al pulsar el botón, navegamos al siguiente fragmento.
         binding.buttonTribuna.setOnClickListener {
-            val bundle = bundleOf("partido" to partido)
+            val bundle = bundleOf("partido" to partido, "grada" to binding.textviewTribuna.text)
             findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
 
         binding.buttonFondoNorte.setOnClickListener {
-            val bundle = bundleOf("partido" to partido)
+            val bundle = bundleOf("partido" to partido, "grada" to binding.textviewFondoNorte.text)
             //actualizaTextoPartido()
             findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
 
         binding.buttonFondoSur.setOnClickListener {
-            val bundle = bundleOf("partido" to partido)
+            val bundle = bundleOf("partido" to partido,  "grada" to binding.textviewFondoSur.text)
             findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
 
         binding.buttonPreferencia.setOnClickListener {
-            val bundle = bundleOf("partido" to partido)
+            val bundle = bundleOf("partido" to partido,  "grada" to binding.textviewPreferencia.text)
             findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
         }
     }
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: String) =
             LocalidadFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_PARTIDO, param1)
                 }
             }
     }
