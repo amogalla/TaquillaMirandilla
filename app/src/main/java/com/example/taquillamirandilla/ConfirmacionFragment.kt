@@ -43,8 +43,10 @@ class ThirdFragment : Fragment() {
         binding.textviewNombreGrada.text = grada
         viewModel = ViewModelProviders.of(this).get(ConfirmacionViewModel::class.java)
 
-        binding.buttonThird.setOnClickListener{
+        binding.buttonValidarCompra.setOnClickListener{
             actualizaTextoPartido()
+            binding.buttonSiguiente.isEnabled = true
+            binding.buttonValidarCompra.isEnabled = false
         }
         return binding.root
     }
@@ -63,15 +65,15 @@ class ThirdFragment : Fragment() {
         val bundle = bundleOf("param1" to "Pago autorizado: " + pago.toString())
 
         //Si el número aleatorio ha sido el 1, el pedido se ha realizado correctamente
-        /*if(pago == 1) {
-            binding.buttonThird.setOnClickListener {
+        if(pago == 1) {
+            binding.buttonSiguiente.setOnClickListener {
                 findNavController().navigate(R.id.action_thirdFragment_to_fourthFragment, bundle) //Navegamos al fragmento 4.
             }
         }else{ //Si el número aleatorio ha sido el 2, ha habido un error en el pago
-            binding.buttonThird.setOnClickListener {
+            binding.buttonSiguiente.setOnClickListener {
                 findNavController().navigate(R.id.action_thirdFragment_to_fifthFragment, bundle) //Navegamos al fragmento 5.
             }
-        }*/
+        }
     }
 
     override fun onDestroyView() {
@@ -80,7 +82,7 @@ class ThirdFragment : Fragment() {
     }
 
     private fun actualizaTextoPartido(){
-        binding.textViewConfirmacion1.text = viewModel.partido
+        binding.textViewCodigo.text = viewModel.codigoEntrada
     }
 
 

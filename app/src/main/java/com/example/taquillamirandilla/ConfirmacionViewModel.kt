@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 
 class ConfirmacionViewModel: ViewModel() {
 
-    var partido = "test"
+    var codigoEntrada = "test"
 
-    lateinit var listaPartidos: MutableList<String>
+    lateinit var listaCodigos: MutableList<String>
 
     init {
         resetList()
@@ -23,16 +23,16 @@ class ConfirmacionViewModel: ViewModel() {
     }
 
     private fun resetList(){
-        listaPartidos = mutableListOf("1111", "2222", "3333", "4444")
-        listaPartidos.shuffle()
-        listaPartidos = mutableListOf(listaPartidos[0]) //Nos quedamos sólo con un partido de forma aleatoria
+        listaCodigos = mutableListOf("0B6YG", "WP7U1", "R5T9M", "JQY3V", "4FH61")
+        listaCodigos.shuffle()
+        listaCodigos = mutableListOf(listaCodigos[0]) //Nos quedamos sólo con un partido de forma aleatoria
     }
 
     private fun partidoAleatorio(){
-        if (listaPartidos.isEmpty())
+        if (listaCodigos.isEmpty())
             //localidadTermina()
         else
-            partido = listaPartidos[0]
+            codigoEntrada = listaCodigos[0]
     }
 
 }
