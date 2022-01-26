@@ -27,10 +27,10 @@
 
     </fragment>
     <fragment
-        android:id="@+id/thirdFragment"
+        android:id="@+id/confirmacionFragment"
         android:name="com.example.taquillamirandilla.ThirdFragment"
         android:label="@string/third_fragment_label"
-        tools:layout="@layout/fragment_third">
+        tools:layout="@layout/fragment_confirmacion">
         <action
             android:id="@+id/action_thirdFragment_to_fourthFragment"
             app:destination="@id/fourthFragment"
@@ -42,7 +42,7 @@
         <action
             android:id="@+id/action_thirdFragment_to_fifthFragment"
             app:destination="@id/fifthFragment"
-            app:popUpTo="@id/thirdFragment" />
+            app:popUpTo="@id/confirmacionFragment" />
         <argument
             android:name="partido"
             android:defaultValue='"Error 2"'
@@ -68,8 +68,8 @@
         tools:layout="@layout/fragment_fifth">
         <action
             android:id="@+id/action_fifthFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment"
-            app:popUpTo="@id/thirdFragment" />
+            app:destination="@id/confirmacionFragment"
+            app:popUpTo="@id/confirmacionFragment" />
     </fragment>
     <fragment
         android:id="@+id/localidadFragment"
@@ -78,7 +78,7 @@
         tools:layout="@layout/fragment_localidad">
         <action
             android:id="@+id/action_localidad_to_thirdFragment"
-            app:destination="@id/thirdFragment" />
+            app:destination="@id/confirmacionFragment" />
         <argument
             android:name="partido"
             app:argType="string"

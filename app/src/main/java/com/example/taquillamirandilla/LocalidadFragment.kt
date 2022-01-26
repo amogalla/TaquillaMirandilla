@@ -19,7 +19,7 @@ import com.example.taquillamirandilla.databinding.FragmentLocalidadBinding
 val ARG_PARTIDO = "partido"
 
 class LocalidadFragment : Fragment() {
-    private lateinit var viewModel:LocalidadViewModel
+    //private lateinit var viewModel:ConfirmacionViewModel
     private var partido:String? = null
 
     private var _binding: FragmentLocalidadBinding? = null
@@ -40,12 +40,8 @@ class LocalidadFragment : Fragment() {
         // Inflamos el layout al crear la vista
         _binding = FragmentLocalidadBinding.inflate(inflater, container, false)
 
-        Log.i("LocalidadViewModel", "Providers call.")
-        viewModel = ViewModelProviders.of(this).get(LocalidadViewModel::class.java)
-
-        binding.buttonFondoNorte.setOnClickListener{
-            actualizaTextoPartido()
-        }
+        Log.i("ConfirmacionViewModel", "Providers call.")
+        //viewModel = ViewModelProviders.of(this).get(ConfirmacionViewModel::class.java)
 
 
         return binding.root
@@ -93,10 +89,6 @@ class LocalidadFragment : Fragment() {
     }
 
 
-
-    private fun actualizaTextoPartido(){
-        binding.textviewFondoNorte.text = partido // viewModel.partido
-    }
 
 
 
