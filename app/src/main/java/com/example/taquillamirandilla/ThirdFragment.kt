@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.taquillamirandilla.databinding.FragmentThirdBinding
 
-val ARG_PARTIDO = "partido"
 
 class ThirdFragment : Fragment() {
 

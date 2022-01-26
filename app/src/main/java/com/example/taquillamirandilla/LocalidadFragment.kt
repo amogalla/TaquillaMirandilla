@@ -15,12 +15,15 @@ import com.example.taquillamirandilla.databinding.FragmentFirstBinding
 import com.example.taquillamirandilla.databinding.FragmentLocalidadBinding
 
 
+val ARG_PARTIDO = "partido"
+
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class LocalidadFragment : Fragment() {
     private lateinit var viewModel:LocalidadViewModel
+    private var partido:String? = null
 
     private var param1: String? = null
     private var param2: String? = null
@@ -30,8 +33,7 @@ class LocalidadFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            partido = it.getString(ARG_PARTIDO)
         }
     }
 
@@ -95,7 +97,7 @@ class LocalidadFragment : Fragment() {
 
 
     private fun actualizaTextoPartido(){
-        binding.textviewFondoNorte.text = viewModel.partido
+        binding.textviewFondoNorte.text = partido // viewModel.partido
     }
 
 

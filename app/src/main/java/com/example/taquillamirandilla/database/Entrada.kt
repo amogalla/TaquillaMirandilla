@@ -19,5 +19,5 @@ data class Entrada(
         var asiento: Int = 0,
 
         @ColumnInfo(name = "partido")
-        val partido: String = "",
+        val partido: String = ""
 )
