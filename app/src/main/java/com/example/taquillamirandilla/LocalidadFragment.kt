@@ -8,11 +8,9 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.example.taquillamirandilla.databinding.FragmentFirstBinding
 import com.example.taquillamirandilla.databinding.FragmentLocalidadBinding
 
 
@@ -58,23 +56,23 @@ class LocalidadFragment : Fragment() {
         //Al pulsar el botón, navegamos al siguiente fragmento.
         binding.buttonTribuna.setOnClickListener {
             val bundle = bundleOf("partido" to partido, "grada" to binding.textviewTribuna.text)
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_localidad_to_confirmacionFragment, bundle)
         }
 
         binding.buttonFondoNorte.setOnClickListener {
             val bundle = bundleOf("partido" to partido, "grada" to binding.textviewFondoNorte.text)
             //actualizaTextoPartido()
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_localidad_to_confirmacionFragment, bundle)
         }
 
         binding.buttonFondoSur.setOnClickListener {
             val bundle = bundleOf("partido" to partido,  "grada" to binding.textviewFondoSur.text)
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_localidad_to_confirmacionFragment, bundle)
         }
 
         binding.buttonPreferencia.setOnClickListener {
             val bundle = bundleOf("partido" to partido,  "grada" to binding.textviewPreferencia.text)
-            findNavController().navigate(R.id.action_localidad_to_thirdFragment, bundle)
+            findNavController().navigate(R.id.action_localidad_to_confirmacionFragment, bundle)
         }
     }
     companion object {
@@ -93,7 +91,7 @@ class LocalidadFragment : Fragment() {
 
 
     fun localidadTermina() {
-        findNavController().navigate(R.id.action_localidad_to_thirdFragment)
+        findNavController().navigate(R.id.action_localidad_to_confirmacionFragment)
     }
 
 }

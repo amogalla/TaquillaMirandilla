@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmacionFragment"
-        android:name="com.example.taquillamirandilla.ThirdFragment"
+        android:name="com.example.taquillamirandilla.confirmacion.ConfirmacionFragment"
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_confirmacion">
         <action
@@ -77,7 +77,7 @@
         android:label="@string/select_localidad"
         tools:layout="@layout/fragment_localidad">
         <action
-            android:id="@+id/action_localidad_to_thirdFragment"
+            android:id="@+id/action_localidad_to_confirmacionFragment"
             app:destination="@id/confirmacionFragment" />
         <argument
             android:name="partido"

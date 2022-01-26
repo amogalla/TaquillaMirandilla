@@ -1,4 +1,4 @@
-package com.example.taquillamirandilla
+package com.example.taquillamirandilla.confirmacion
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,13 +13,15 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.taquillamirandilla.ARG_PARTIDO
+import com.example.taquillamirandilla.R
 import com.example.taquillamirandilla.databinding.FragmentConfirmacionBinding
 
 val ARG_GRADA = "grada"
 
 
 
-class ThirdFragment : Fragment() {
+class ConfirmacionFragment : Fragment() {
 
     private lateinit var viewModel:ConfirmacionViewModel
     private var partido:String? = null
