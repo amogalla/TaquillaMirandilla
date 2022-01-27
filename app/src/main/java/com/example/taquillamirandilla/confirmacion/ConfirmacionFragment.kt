@@ -52,13 +52,7 @@ class ConfirmacionFragment : Fragment() {
             false
         )
 
-        //Establecemos el valor de los textViews que nos llegan como parámetros de los fragmentos anteriores
-        binding.textviewNombrePartido.text = partido
-        binding.textviewNombreGrada.text = grada
-
-        //Invisibilizamos los dos textos referentes al código de compra
-        binding.textViewInfoCodigo.isVisible = false
-        binding.textViewCodigo.isVisible = false
+        inicializarTextos()
 
         //Construimos el viewModel creando un viewModelFactory
         viewModelFactory = ConfirmacionViewModelFactory(partido!!, grada!!, codigo!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
@@ -66,19 +60,12 @@ class ConfirmacionFragment : Fragment() {
 
         //Obtenemos el viewModel
         binding.confirmacionViewModel = viewModel
-
+        binding.lifecycleOwner = this
 
         //codigo = viewModel.resetList().toString()
 
-  /*      binding.buttonValidarCompra.setOnClickListener{
-            binding.textViewInfoCodigo.isVisible = true
-            binding.textViewCodigo.isVisible = true
-            binding.buttonSiguiente.isEnabled = true
-            binding.buttonValidarCompra.isEnabled = false
-        }
-*/
         viewModel.codigoEntrada.observe(this, { nuevoCodigoEntrada ->
-            actualizarCodigo(nuevoCodigoEntrada.toString())
+            actualizarCodigo()
         })
 
         return binding.root
@@ -116,16 +103,23 @@ class ConfirmacionFragment : Fragment() {
 
     fun cambioTrasBoton(){
         if (botonValidarPulsado) {
-            binding.textViewInfoCodigo.isVisible = true
             binding.textViewCodigo.isVisible = true
             binding.buttonSiguiente.isEnabled = true
             binding.buttonValidarCompra.isEnabled = false
         }
     }
 
-    private fun actualizarCodigo(nuevoCodigoEntrada:String){
-        binding.textViewCodigo.text = nuevoCodigoEntrada
+    private fun actualizarCodigo(){
         cambioTrasBoton()
         botonValidarPulsado = true
+    }
+
+    private fun inicializarTextos(){
+        //Establecemos el valor de los textViews que nos llegan como parámetros de los fragmentos anteriores
+        binding.textviewNombrePartido.text = partido
+        binding.textviewNombreGrada.text = grada
+
+        //Invisibilizamos el texto referentes al código de compra
+        binding.textViewCodigo.isVisible = false
     }
 }

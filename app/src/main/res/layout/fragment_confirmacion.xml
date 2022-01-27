@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name = "confirmacionViewModel"
@@ -10,9 +12,7 @@
 
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="confirmacion.ConfirmacionFragment">
@@ -116,25 +116,14 @@
             app:layout_constraintGuide_percent="0.65" />
 
         <TextView
-            android:id="@+id/textView_infoCodigo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:text="@string/info_codigo_compra"
-            app:layout_constraintBottom_toTopOf="@+id/guideline13"
-            app:layout_constraintEnd_toStartOf="@+id/guideline12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline11" />
-
-        <TextView
             android:id="@+id/textView_codigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_codigo_compra"
+            android:text="@{@string/codigo_format(confirmacionViewModel.codigoEntrada)}"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline13"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
         <Button
@@ -148,13 +137,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline13"

@@ -41,4 +41,8 @@
     <string name="info_codigo_compra">Código de compra</string>
     <string name="text_codigo_compra">Código</string>
     <string name="validar_compra">Validar Compra</string>
+
+    <!-- Formatting string -->
+    <string name="quote_format">\"%s\"</string>
+    <string name="codigo_format">Código de compra: %s</string>
 </resources>
