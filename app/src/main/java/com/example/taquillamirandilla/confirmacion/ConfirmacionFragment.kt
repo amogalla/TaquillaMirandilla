@@ -57,8 +57,8 @@ class ConfirmacionFragment : Fragment() {
         binding.textviewNombreGrada.text = grada
 
         //Invisibilizamos los dos textos referentes al código de compra
-        binding.textViewInfoCodigo.isVisible = true
-        binding.textViewCodigo.isVisible = true
+        binding.textViewInfoCodigo.isVisible = false
+        binding.textViewCodigo.isVisible = false
 
         //Construimos el viewModel creando un viewModelFactory
         viewModelFactory = ConfirmacionViewModelFactory(partido!!, grada!!, codigo!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
@@ -78,9 +78,7 @@ class ConfirmacionFragment : Fragment() {
         }
 */
         viewModel.codigoEntrada.observe(this, { nuevoCodigoEntrada ->
-            binding.textViewCodigo.text = nuevoCodigoEntrada.toString()
-            cambioTrasBoton()
-            botonValidarPulsado = true
+            actualizarCodigo(nuevoCodigoEntrada.toString())
         })
 
         return binding.root
@@ -125,4 +123,9 @@ class ConfirmacionFragment : Fragment() {
         }
     }
 
+    private fun actualizarCodigo(nuevoCodigoEntrada:String){
+        binding.textViewCodigo.text = nuevoCodigoEntrada
+        cambioTrasBoton()
+        botonValidarPulsado = true
+    }
 }
