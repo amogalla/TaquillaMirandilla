@@ -1,6 +1,7 @@
 package com.example.taquillamirandilla.confirmacion
 
 import android.util.Log
+import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,7 +32,6 @@ class ConfirmacionViewModel(partido:String, grada:String, codigo:String): ViewMo
     fun resetList(){
         listaCodigos = mutableListOf("0B6YG", "WP7U1", "R5T9M", "JQY3V", "4FH61", "1QB3L", "49CD2")
         listaCodigos.shuffle()
-
         _codigoEntrada.value = listaCodigos[0]
     }
 
@@ -40,6 +40,11 @@ class ConfirmacionViewModel(partido:String, grada:String, codigo:String): ViewMo
             //localidadTermina()
         else
             _codigoEntrada.value = listaCodigos[0]
+    }
+
+
+    fun onClickValidar(){
+        resetList()
     }
 
 }

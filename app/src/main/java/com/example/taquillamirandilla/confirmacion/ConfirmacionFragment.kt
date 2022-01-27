@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -27,6 +28,7 @@ class ConfirmacionFragment : Fragment() {
     private var codigo:String? = ""
     private var partido:String? = null
     private var grada:String? = null
+    private var botonValidarPulsado = false
     private var _binding: FragmentConfirmacionBinding? = null
     private val binding get() = _binding!!
 
@@ -42,31 +44,43 @@ class ConfirmacionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)  //Tiene UN menú
-        _binding = FragmentConfirmacionBinding.inflate(inflater, container, false)
+        //_binding = FragmentConfirmacionBinding.inflate(inflater, container, false)
+        _binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_confirmacion,
+            container,
+            false
+        )
 
         //Establecemos el valor de los textViews que nos llegan como parámetros de los fragmentos anteriores
         binding.textviewNombrePartido.text = partido
         binding.textviewNombreGrada.text = grada
 
         //Invisibilizamos los dos textos referentes al código de compra
-        binding.textViewInfoCodigo.isVisible = false
-        binding.textViewCodigo.isVisible = false
+        binding.textViewInfoCodigo.isVisible = true
+        binding.textViewCodigo.isVisible = true
 
+        //Construimos el viewModel creando un viewModelFactory
         viewModelFactory = ConfirmacionViewModelFactory(partido!!, grada!!, codigo!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
         viewModel = ViewModelProvider(this, viewModelFactory).get(ConfirmacionViewModel::class.java)
 
-        codigo = viewModel.resetList().toString()
+        //Obtenemos el viewModel
+        binding.confirmacionViewModel = viewModel
 
-        binding.buttonValidarCompra.setOnClickListener{
-            viewModel.resetList()
+
+        //codigo = viewModel.resetList().toString()
+
+  /*      binding.buttonValidarCompra.setOnClickListener{
             binding.textViewInfoCodigo.isVisible = true
             binding.textViewCodigo.isVisible = true
             binding.buttonSiguiente.isEnabled = true
             binding.buttonValidarCompra.isEnabled = false
         }
-
+*/
         viewModel.codigoEntrada.observe(this, { nuevoCodigoEntrada ->
             binding.textViewCodigo.text = nuevoCodigoEntrada.toString()
+            cambioTrasBoton()
+            botonValidarPulsado = true
         })
 
         return binding.root
@@ -100,6 +114,15 @@ class ConfirmacionFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         //_binding = null
+    }
+
+    fun cambioTrasBoton(){
+        if (botonValidarPulsado) {
+            binding.textViewInfoCodigo.isVisible = true
+            binding.textViewCodigo.isVisible = true
+            binding.buttonSiguiente.isEnabled = true
+            binding.buttonValidarCompra.isEnabled = false
+        }
     }
 
 }
