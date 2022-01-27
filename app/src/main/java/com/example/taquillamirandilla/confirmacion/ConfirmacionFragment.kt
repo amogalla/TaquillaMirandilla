@@ -24,6 +24,9 @@ val ARG_GRADA = "grada"
 class ConfirmacionFragment : Fragment() {
 
     private lateinit var viewModel:ConfirmacionViewModel
+    private lateinit var viewModelFactory:ConfirmacionViewModelFactory
+
+
     private var partido:String? = null
     private var grada:String? = null
     private var _binding: FragmentConfirmacionBinding? = null
@@ -43,7 +46,7 @@ class ConfirmacionFragment : Fragment() {
         setHasOptionsMenu(true)  //Tiene UN menú
         _binding = FragmentConfirmacionBinding.inflate(inflater, container, false)
 
-        //Establecemos el valos de los textViews que nos llegan como parámetros de los fragmentos anteriores
+        //Establecemos el valor de los textViews que nos llegan como parámetros de los fragmentos anteriores
         binding.textviewNombrePartido.text = partido
         binding.textviewNombreGrada.text = grada
 
@@ -51,7 +54,9 @@ class ConfirmacionFragment : Fragment() {
         binding.textViewInfoCodigo.isVisible = false
         binding.textViewCodigo.isVisible = false
 
-        viewModel = ViewModelProviders.of(this).get(ConfirmacionViewModel::class.java)
+        viewModelFactory = ConfirmacionViewModelFactory(partido!!, grada!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ConfirmacionViewModel::class.java)
+
 
         binding.buttonValidarCompra.setOnClickListener{
             viewModel.resetList()
@@ -78,7 +83,7 @@ class ConfirmacionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Generamos un número aleatorio entre 1 y 2
         //val pago = (0 until 2).random()
-        val pago = 1
+        val pago = 0
         val bundle = bundleOf("param1" to "Pago autorizado: " + pago.toString())
 
         //Si el número aleatorio ha sido el 1, el pedido se ha realizado correctamente

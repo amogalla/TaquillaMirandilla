@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ConfirmacionViewModel: ViewModel() {
+class ConfirmacionViewModel(partido:String, grada:String): ViewModel() {
 
     private val _codigoEntrada = MutableLiveData<String>()
     val codigoEntrada: LiveData<String>
@@ -15,9 +15,9 @@ class ConfirmacionViewModel: ViewModel() {
 
     init {
         resetList()
-        partidoAleatorio()
+        codigoAleatorio()
         _codigoEntrada.value = ""
-        Log.i("ConfirmacionViewModel", "ConfirmacionViewModel creado con éxito.")
+        Log.i("ConfirmacionViewModel", "ConfirmacionViewModel creado con éxito. El partido es el $partido")
     }
 
     override fun onCleared() {
@@ -35,7 +35,7 @@ class ConfirmacionViewModel: ViewModel() {
         _codigoEntrada.value = listaCodigos[0]
     }
 
-    private fun partidoAleatorio(){ //prueba borrar
+    private fun codigoAleatorio(){ //prueba borrar
         if (listaCodigos.isEmpty())
             //localidadTermina()
         else
