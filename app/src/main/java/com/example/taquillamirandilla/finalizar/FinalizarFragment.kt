@@ -1,4 +1,4 @@
-package com.example.taquillamirandilla
+package com.example.taquillamirandilla.finalizar
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.taquillamirandilla.R
 import com.example.taquillamirandilla.databinding.FragmentFinalizarBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -34,7 +35,7 @@ class FinalizarFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         setHasOptionsMenu(true)  //Tiene UN menú
         // Inflamos el layout al crear la vista
         _binding = FragmentFinalizarBinding.inflate(inflater, container, false)
@@ -52,7 +53,6 @@ class FinalizarFragment : Fragment() {
     }
 
     private fun getShareIntent() : Intent {
-        //val args = FourthFragmentArgs.fromBundle(arguments)
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain")
             .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text))
