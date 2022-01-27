@@ -26,7 +26,7 @@ class ConfirmacionFragment : Fragment() {
     private lateinit var viewModel:ConfirmacionViewModel
     private lateinit var viewModelFactory:ConfirmacionViewModelFactory
 
-
+    private var codigo:String? = ""
     private var partido:String? = null
     private var grada:String? = null
     private var _binding: FragmentConfirmacionBinding? = null
@@ -54,9 +54,10 @@ class ConfirmacionFragment : Fragment() {
         binding.textViewInfoCodigo.isVisible = false
         binding.textViewCodigo.isVisible = false
 
-        viewModelFactory = ConfirmacionViewModelFactory(partido!!, grada!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
+        viewModelFactory = ConfirmacionViewModelFactory(codigo!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ConfirmacionViewModel::class.java)
 
+        codigo = viewModel.resetList().toString()?:""
 
         binding.buttonValidarCompra.setOnClickListener{
             viewModel.resetList()

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ConfirmacionViewModel(partido:String, grada:String): ViewModel() {
+class ConfirmacionViewModel(codigo:String): ViewModel() {
 
     private val _codigoEntrada = MutableLiveData<String>()
     val codigoEntrada: LiveData<String>
@@ -16,8 +16,8 @@ class ConfirmacionViewModel(partido:String, grada:String): ViewModel() {
     init {
         resetList()
         codigoAleatorio()
-        _codigoEntrada.value = ""
-        Log.i("ConfirmacionViewModel", "ConfirmacionViewModel creado con éxito. El partido es el $partido")
+        _codigoEntrada.value = codigo
+        Log.i("ConfirmacionViewModel", "ConfirmacionViewModel creado con éxito. El código de compra es el $codigo")
     }
 
     override fun onCleared() {
