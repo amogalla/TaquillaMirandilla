@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ConfirmacionViewModel(codigo:String): ViewModel() {
+class ConfirmacionViewModel(partido:String, grada:String, codigo:String): ViewModel() {
 
     private val _codigoEntrada = MutableLiveData<String>()
     val codigoEntrada: LiveData<String>

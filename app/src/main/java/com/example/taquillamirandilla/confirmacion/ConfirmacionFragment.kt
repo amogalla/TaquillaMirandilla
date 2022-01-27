@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -18,7 +18,6 @@ import com.example.taquillamirandilla.R
 import com.example.taquillamirandilla.databinding.FragmentConfirmacionBinding
 
 val ARG_GRADA = "grada"
-
 
 
 class ConfirmacionFragment : Fragment() {
@@ -54,10 +53,10 @@ class ConfirmacionFragment : Fragment() {
         binding.textViewInfoCodigo.isVisible = false
         binding.textViewCodigo.isVisible = false
 
-        viewModelFactory = ConfirmacionViewModelFactory(codigo!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ConfirmacionViewModel::class.java)
+        viewModelFactory = ConfirmacionViewModelFactory(partido!!, grada!!, codigo!!) //Sabemos al 100% que ni el partido ni la grada pueden ser null
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ConfirmacionViewModel::class.java)
 
-        codigo = viewModel.resetList().toString()?:""
+        codigo = viewModel.resetList().toString()
 
         binding.buttonValidarCompra.setOnClickListener{
             viewModel.resetList()
@@ -75,7 +74,7 @@ class ConfirmacionFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
 
