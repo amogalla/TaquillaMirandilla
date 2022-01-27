@@ -64,7 +64,7 @@ class ConfirmacionFragment : Fragment() {
 
         //codigo = viewModel.resetList().toString()
 
-        viewModel.codigoEntrada.observe(this, { nuevoCodigoEntrada ->
+        viewModel.codigoEntrada.observe(this, { _ ->
             actualizarCodigo()
         })
 
@@ -81,7 +81,7 @@ class ConfirmacionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Generamos un número aleatorio entre 1 y 2
         //val pago = (0 until 2).random()
-        val pago = 0
+        val pago = 1
         //val bundle = bundleOf("param1" to "Pago autorizado: " + pago.toString())
 
         //Si el número aleatorio ha sido el 1, el pedido se ha realizado correctamente

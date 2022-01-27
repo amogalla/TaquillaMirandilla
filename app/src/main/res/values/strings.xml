@@ -45,4 +45,5 @@
     <!-- Formatting string -->
     <string name="quote_format">\"%s\"</string>
     <string name="codigo_format">Código de compra: %s</string>
+    <string name="finalizar_compra">Finalizar la compra</string>
 </resources>

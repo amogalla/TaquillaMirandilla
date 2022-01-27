@@ -14,6 +14,7 @@ class ConfirmacionViewModel(partido:String, grada:String, codigo:String): ViewMo
 
     lateinit var listaCodigos: MutableList<String>
 
+
     init {
         resetList()
         codigoAleatorio()
