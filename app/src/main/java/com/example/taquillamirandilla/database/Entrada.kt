@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "entrada_table")
 data class Entrada(
         @PrimaryKey(autoGenerate = true)
-        var id: Long = 0L,
+        var id: Long = 0L, //Al ser autogenerada, tiene que ser Long
 
         @ColumnInfo(name = "grada")
         var grada: String = "",
