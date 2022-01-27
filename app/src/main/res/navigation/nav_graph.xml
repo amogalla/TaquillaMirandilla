@@ -32,7 +32,7 @@
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_confirmacion">
         <action
-            android:id="@+id/action_thirdFragment_to_fourthFragment"
+            android:id="@+id/action_confirmacionFragment_to_fourthFragment"
             app:destination="@id/fourthFragment"
             app:popUpTo="@id/FirstFragment" >
             <argument
@@ -40,9 +40,10 @@
                 android:defaultValue="0" />
         </action>
         <action
-            android:id="@+id/action_thirdFragment_to_fifthFragment"
+            android:id="@+id/action_confirmacionFragment_to_fifthFragment"
             app:destination="@id/fifthFragment"
-            app:popUpTo="@id/confirmacionFragment" />
+            app:popUpTo="@id/confirmacionFragment"
+            app:popUpToInclusive="false" />
         <argument
             android:name="partido"
             android:defaultValue='"Error 2"'
@@ -67,7 +68,7 @@
         android:label="@string/fifth_fragment_label"
         tools:layout="@layout/fragment_fifth">
         <action
-            android:id="@+id/action_fifthFragment_to_thirdFragment"
+            android:id="@+id/action_fifthFragment_to_confirmacionFragment"
             app:destination="@id/confirmacionFragment"
             app:popUpTo="@id/confirmacionFragment" />
     </fragment>

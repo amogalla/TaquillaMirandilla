@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -41,7 +40,7 @@ class ConfirmacionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         setHasOptionsMenu(true)  //Tiene UN menú
         _binding = FragmentConfirmacionBinding.inflate(inflater, container, false)
 
@@ -66,7 +65,7 @@ class ConfirmacionFragment : Fragment() {
             binding.buttonValidarCompra.isEnabled = false
         }
 
-        viewModel.codigoEntrada.observe(this, Observer { nuevoCodigoEntrada ->
+        viewModel.codigoEntrada.observe(this, { nuevoCodigoEntrada ->
             binding.textViewCodigo.text = nuevoCodigoEntrada.toString()
         })
 
@@ -84,23 +83,23 @@ class ConfirmacionFragment : Fragment() {
         //Generamos un número aleatorio entre 1 y 2
         //val pago = (0 until 2).random()
         val pago = 0
-        val bundle = bundleOf("param1" to "Pago autorizado: " + pago.toString())
+        //val bundle = bundleOf("param1" to "Pago autorizado: " + pago.toString())
 
         //Si el número aleatorio ha sido el 1, el pedido se ha realizado correctamente
         if(pago == 1) {
             binding.buttonSiguiente.setOnClickListener {
-                findNavController().navigate(R.id.action_thirdFragment_to_fourthFragment, bundle) //Navegamos al fragmento 4.
+                findNavController().navigate(R.id.action_confirmacionFragment_to_fourthFragment) //Navegamos al fragmento 4.
             }
         }else{ //Si el número aleatorio ha sido el 2, ha habido un error en el pago
             binding.buttonSiguiente.setOnClickListener {
-                findNavController().navigate(R.id.action_thirdFragment_to_fifthFragment, bundle) //Navegamos al fragmento 5.
+                findNavController().navigate(R.id.action_confirmacionFragment_to_fifthFragment) //Navegamos al fragmento 5.
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        //_binding = null
     }
 
 }
