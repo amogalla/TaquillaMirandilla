@@ -7,8 +7,8 @@
     <string name="first_fragment_label">Taquilla Cádiz C.F.</string>
     <string name="second_fragment_label">Selección de partido</string>
     <string name="third_fragment_label">Selección de entrada</string>
-    <string name="fourth_fragment_label">Fourth Fragment</string>
-    <string name="fifth_fragment_label">Fifth Fragment</string>
+    <string name="finalizar_fragment_label">Finalizar compra</string>
+    <string name="fifth_fragment_label">Error</string>
 
     <!-- Strings para botones y labels -->
     <string name="inicio">Inicio</string>

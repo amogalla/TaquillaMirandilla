@@ -32,9 +32,8 @@
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_confirmacion">
         <action
-            android:id="@+id/action_confirmacionFragment_to_fourthFragment"
-            app:destination="@id/fourthFragment"
-            app:popUpTo="@id/FirstFragment" >
+            android:id="@+id/action_confirmacionFragment_to_finalizarFragment"
+            app:destination="@id/finalizarFragment">
             <argument
                 android:name="param1"
                 android:defaultValue="0" />
@@ -50,12 +49,11 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/fourthFragment"
-        android:name="com.example.taquillamirandilla.FourthFragment"
-        android:label="@string/fourth_fragment_label"
-        tools:layout="@layout/fragment_fourth" >
+        android:id="@+id/finalizarFragment"
+        android:name="com.example.taquillamirandilla.FinalizarFragment"
+        android:label="@string/finalizar_fragment_label">
         <action
-            android:id="@+id/action_fourthFragment_to_FirstFragment"
+            android:id="@+id/action_finalizarFragment_to_FirstFragment"
             app:destination="@id/FirstFragment"
             app:popUpTo="@id/FirstFragment" />
     </fragment>

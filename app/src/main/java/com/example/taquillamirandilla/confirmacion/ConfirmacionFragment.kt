@@ -87,7 +87,7 @@ class ConfirmacionFragment : Fragment() {
         //Si el número aleatorio ha sido el 1, el pedido se ha realizado correctamente
         if(pago == 1) {
             binding.buttonSiguiente.setOnClickListener {
-                findNavController().navigate(R.id.action_confirmacionFragment_to_fourthFragment) //Navegamos al fragmento 4.
+                findNavController().navigate(R.id.action_confirmacionFragment_to_finalizarFragment) //Navegamos al fragmento 4.
             }
         }else{ //Si el número aleatorio ha sido el 2, ha habido un error en el pago
             binding.buttonSiguiente.setOnClickListener {

@@ -7,14 +7,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.example.taquillamirandilla.databinding.FragmentFourthBinding
+import com.example.taquillamirandilla.databinding.FragmentFinalizarBinding
 
 private const val ARG_PARAM1 = "param1"
 
-class FourthFragment : Fragment() {
+class FinalizarFragment : Fragment() {
 
     private var param1:String? = null
-    private var _binding: FragmentFourthBinding? = null
+    private var _binding: FragmentFinalizarBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -37,7 +37,7 @@ class FourthFragment : Fragment() {
     ): View? {
         setHasOptionsMenu(true)  //Tiene UN menú
         // Inflamos el layout al crear la vista
-        _binding = FragmentFourthBinding.inflate(inflater, container, false)
+        _binding = FragmentFinalizarBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -47,7 +47,7 @@ class FourthFragment : Fragment() {
         //Como el pedido ya está realizado, al pulsar el botón Inicio,
         // volvemos al primer fragmento.
         binding.buttonFourth.setOnClickListener {
-            findNavController().navigate(R.id.action_fourthFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_finalizarFragment_to_FirstFragment)
         }
     }
 
