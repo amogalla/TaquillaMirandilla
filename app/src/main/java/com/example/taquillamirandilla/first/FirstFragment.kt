@@ -1,4 +1,4 @@
-package com.example.taquillamirandilla
+package com.example.taquillamirandilla.first
 
 import android.os.Bundle
 import android.view.*
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.taquillamirandilla.R
 import com.example.taquillamirandilla.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
