@@ -34,7 +34,7 @@ interface EmpleadosApiService {
      * The @GET annotation indicates that the "realestate" endpoint will be requested with the GET
      * HTTP method
      */
-    @GET("comments")
+    @GET("users")
     suspend fun getProperties(): List<DatosEmpleados>
 }
 

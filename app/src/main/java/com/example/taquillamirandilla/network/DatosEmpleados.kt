@@ -4,5 +4,7 @@ import com.squareup.moshi.Json
 
 data class DatosEmpleados(
     @Json(name = "id") val id: String,
-    val name: String,
-    val email: String)
+    @Json(name = "name") val nombre: String,
+    val email: String,
+    @Json(name = "phone") val telefono: String
+)

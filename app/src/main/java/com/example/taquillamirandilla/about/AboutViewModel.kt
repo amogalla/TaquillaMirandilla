@@ -9,10 +9,11 @@ import kotlinx.coroutines.launch
 
 class AboutViewModel : ViewModel() {
 
-    private val _respuesta = MutableLiveData<String>()
-    val respuesta: LiveData<String>
-        get() = _respuesta
+    private var _texto = MutableLiveData<String>()
+    val texto: LiveData<String>
+        get() = _texto
 
+    private var n_taquillero: Int = 0
 
     init {
         getDatos()
@@ -22,11 +23,14 @@ class AboutViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 var listResult = EmpleadosApi.retrofitService.getProperties()
-                _respuesta.value = listResult[1].name
-                _respuesta.value = listResult[1].email
-                //_respuesta.value = "${listResult.size} datos leídos con éxito."
+                n_taquillero = (0..listResult.size).random()
+                _texto.value = "Si tiene alguna duda sobre cómo comprar entradas, por favor, " +
+                        "escriba un correo a \n${listResult[n_taquillero].email}, o bien llame " +
+                        "al ${listResult[n_taquillero].telefono}. \n\nContactará con " +
+                        "${listResult[n_taquillero].nombre}.\n\nGracias."
+
             } catch (e: Exception) {
-                _respuesta.value = "Se ha encontrado el siguiente error: ${e.message}"
+                _texto.value = "Se ha encontrado el siguiente error: ${e.message}"
             }
         }
     }
