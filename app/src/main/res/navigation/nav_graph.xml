@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.taquillamirandilla.aboutFragment"
+        android:name="com.example.taquillamirandilla.about.aboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
 </navigation>
