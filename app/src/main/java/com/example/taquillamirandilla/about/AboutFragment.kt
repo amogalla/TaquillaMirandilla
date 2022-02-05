@@ -26,7 +26,7 @@ class aboutFragment : Fragment() {
 
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
-        return inflater.inflate(R.layout.fragment_about, container, false)
+        return binding.root//inflater.inflate(R.layout.fragment_about, container, false)
     }
 
 
