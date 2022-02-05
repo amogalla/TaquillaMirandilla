@@ -28,7 +28,7 @@ private val retrofit = Retrofit.Builder()
 /**
  * A public interface that exposes the [getProperties] method
  */
-interface MarsApiService {
+interface EmpleadosApiService {
     /**
      * Returns a Coroutine [List] of [MarsProperty] which can be fetched with await() if in a Coroutine scope.
      * The @GET annotation indicates that the "realestate" endpoint will be requested with the GET
@@ -41,6 +41,6 @@ interface MarsApiService {
 /**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
-object MarsApi {
-    val retrofitService : MarsApiService by lazy { retrofit.create(MarsApiService::class.java) }
+object EmpleadosApi {
+    val retrofitService : EmpleadosApiService by lazy { retrofit.create(EmpleadosApiService::class.java) }
 }
