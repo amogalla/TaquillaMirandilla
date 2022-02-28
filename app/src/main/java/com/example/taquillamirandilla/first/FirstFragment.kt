@@ -21,6 +21,9 @@ class FirstFragment : Fragment() {
         setHasOptionsMenu(true)  //Tiene UN menú
         // Inflamos el layout al crear la vista
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
+
+       // Glide.with(context).load(url).into(imageView)
+
         return binding.root
     }
 
