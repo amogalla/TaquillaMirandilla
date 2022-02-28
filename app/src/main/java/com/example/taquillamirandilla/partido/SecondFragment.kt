@@ -1,4 +1,4 @@
-package com.example.taquillamirandilla
+package com.example.taquillamirandilla.partido
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.taquillamirandilla.R
 import com.example.taquillamirandilla.databinding.FragmentSecondBinding
 
 class SecondFragment : Fragment() {

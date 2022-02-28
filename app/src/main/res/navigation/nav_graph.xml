@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.taquillamirandilla.SecondFragment"
+        android:name="com.example.taquillamirandilla.partido.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
         <action
